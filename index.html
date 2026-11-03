@@ -7,11 +7,21 @@
 :root{color-scheme:light;--ink:#17243a;--muted:#62718a;--accent:#990000;--gold:#e8ae36;--bg:#f4f6fa;--line:#dfe5ee;--green:#166c4e;--red:#a1222a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}header{background:#fff;border-bottom:3px solid var(--accent)}.wrap{max-width:1080px;margin:auto;padding:0 22px}.top{padding:30px 0 26px}h1{margin:0;font-size:clamp(27px,4vw,38px);letter-spacing:-1.2px}header p{color:var(--muted);margin:6px 0 0}.accent{color:var(--accent)}main{padding-top:26px;padding-bottom:40px}.layout{display:grid;grid-template-columns:1.12fr 1fr;gap:20px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:15px;box-shadow:0 5px 20px #182f5009;padding:25px}h2{font-size:18px;margin:0 0 19px}h3{font-size:15px;margin:19px 0 10px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field label{display:block;font-weight:650;font-size:13px;margin:0 0 6px}.field input,.field select{width:100%;padding:11px 12px;border:1px solid #cdd7e4;border-radius:8px;background:#fff;color:var(--ink);font:inherit;outline:none}.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #99000017}.unit{font-weight:400;color:var(--muted)}.rule{height:1px;background:var(--line);margin:23px 0}.check{display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer}.check input{accent-color:var(--accent);width:17px;height:17px;margin-top:2px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}button{cursor:pointer;border:1px solid #bdc8d7;background:#fff;color:var(--ink);padding:10px 14px;border-radius:9px;font-weight:650;font-size:13px}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:focus-visible{outline:3px solid #e8ae3699;outline-offset:2px}.results{display:grid;gap:13px}.score{border:1px solid var(--line);border-radius:12px;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff}.score.fips-score{background:#fff9f8;border-color:#ecd8d4}.score-label{font-size:13px;font-weight:800;letter-spacing:.03em}.score-sub{color:var(--muted);font-size:12px;margin-top:3px}.number{font-variant-numeric:tabular-nums;font-size:36px;font-weight:750;line-height:1.15;letter-spacing:-1px}.tag{font-size:11px;font-weight:750;border-radius:99px;padding:5px 9px;display:inline-block;margin-top:7px}.tag.good{background:#e4f4eb;color:var(--green)}.tag.bad{background:#ffe6e7;color:var(--red)}.tag.neutral{background:#eaf0f6;color:#526178}.note{font-size:12px;color:var(--muted);margin:15px 0 0}.error{color:var(--red);min-height:20px;font-weight:600;font-size:13px;margin:9px 0 0}.method{margin-top:20px}.method-toggle>summary{font-size:18px;font-weight:700;cursor:pointer;list-style:revert}.method-toggle>.method-content{padding-top:18px}.method details{border-top:1px solid var(--line);padding:12px 0}.method details:last-child{border-bottom:1px solid var(--line)}.method-toggle{border:0!important;padding:0!important}.method-toggle>summary{padding:0}.method-toggle>summary:focus-visible{outline:3px solid #e8ae3699;outline-offset:4px}summary{font-weight:700;cursor:pointer}code{white-space:normal;word-break:break-word;background:#f4f6f9;padding:2px 4px;border-radius:3px;color:#34425a}small{color:var(--muted)}.source a{color:#7a1820;text-decoration:underline;text-underline-offset:2px}.foot{margin-top:19px;padding-top:15px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.privacy{font-size:12px;color:var(--green);font-weight:650;margin-top:10px}@media(max-width:760px){.layout{grid-template-columns:1fr}.panel{padding:20px}.wrap{padding:0 15px}.top{padding:23px 0}.number{font-size:32px}}@media print{body{background:white}header{border-bottom:2px solid #999}.panel{box-shadow:none;break-inside:avoid}button{display:none}.layout{grid-template-columns:1fr 1fr}details{display:block}}
 .site-footer{padding:22px 16px 28px;text-align:center;color:var(--muted);font-size:13px;font-weight:600;border-top:1px solid var(--line);background:#fff}
+
+.ocr-panel{margin-bottom:20px}.ocr-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}.ocr-upload{border:2px dashed #c9d2df;border-radius:12px;padding:20px;background:#fafbfd}.ocr-upload input{max-width:100%}.ocr-preview{display:none;width:100%;max-height:260px;object-fit:contain;border:1px solid var(--line);border-radius:8px;margin-top:12px;background:white}.ocr-status{margin:10px 0 0;font-size:13px;color:var(--muted);white-space:pre-line}.ocr-status.warning{color:var(--red)}.ocr-status.success{color:var(--green)}.ocr-paste{width:100%;min-height:115px;resize:vertical;border:1px solid #cdd7e4;border-radius:8px;padding:9px;font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace}.ocr-panel h2{margin-bottom:8px}.ocr-help{font-size:13px;color:var(--muted);margin:0 0 16px}.ocr-actions{margin-top:12px;display:flex;gap:9px;flex-wrap:wrap}.ocr-findings{margin-top:13px;font-size:13px}.ocr-findings p{margin:6px 0}.ocr-field{background:#f0f8f3!important;border-color:#6ba88c!important}.manual-needed{background:#fff9e9!important;border-color:#d9a54b!important}.ocr-privacy{font-size:12px;color:var(--muted);margin-top:12px}.ocr-privacy strong{color:var(--ink)}@media(max-width:760px){.ocr-grid{grid-template-columns:1fr}}@media print{.ocr-panel{display:none}}
 </style>
 </head>
 <body>
 <header><div class="wrap top"><h1><span class="accent">PICK TIPS</span> Risk Calculator</h1><p>MELD original · MELD 3.0 · FIPS &nbsp;|&nbsp; Adult clinical reference</p></div></header>
-<main class="wrap"><div class="layout">
+<main class="wrap">
+<section class="panel ocr-panel" aria-labelledby="ocr-title">
+<h2 id="ocr-title">Import laboratory values from a screenshot</h2>
+<p class="ocr-help">Choose a screenshot of a laboratory table (PNG, JPG, or WebP). Text recognition runs in this browser. Review every extracted value before using the scores.</p>
+<div class="ocr-grid"><div class="ocr-upload"><label for="lab-image"><strong>Lab screenshot</strong></label><p class="ocr-help" style="margin:5px 0 12px">Select a screenshot or image file</p><input id="lab-image" type="file" accept="image/png,image/jpeg,image/webp,image/bmp" aria-label="Upload screenshot of laboratory results"><img id="lab-preview" class="ocr-preview" alt="Selected laboratory screenshot"><div class="ocr-actions"><button class="primary" id="run-ocr" type="button" disabled>Read labs from image</button></div><p id="ocr-status" class="ocr-status" aria-live="polite">No screenshot selected.</p></div>
+<div><label for="ocr-text"><strong>Recognized text (editable)</strong></label><p class="ocr-help" style="margin:5px 0 10px">If any values are missed, paste or correct the text and choose “Apply text to fields.”</p><textarea class="ocr-paste" id="ocr-text" spellcheck="false" placeholder="Example:&#10;INR 1.3&#10;Sodium Lvl 137 mmol/L&#10;Creatinine Lvl 0.81 mg/dL&#10;Albumin Lvl 2.9 g/dL&#10;Bilirubin Total 2 mg/dL"></textarea><div class="ocr-actions"><button id="apply-ocr-text" type="button">Apply text to fields</button></div><div id="ocr-findings" class="ocr-findings" aria-live="polite"></div></div></div>
+<p class="ocr-privacy"><strong>Privacy:</strong> Image analysis takes place locally in your browser and the image is not sent to a server by this page. The OCR library and language model are downloaded from third-party CDNs on first use, so internet access is required. Avoid use with identifiable patient screenshots unless this workflow is approved by your institution. Lab values and patient demographics must be verified manually.</p>
+</section>
+<div class="layout">
 <section class="panel" aria-labelledby="patient-title"><h2 id="patient-title">Patient and laboratory inputs</h2>
 <div class="fields">
 <div class="field"><label for="age">Age <span class="unit">(years)</span></label><input id="age" type="number" min="18" max="120" step="1" inputmode="decimal"></div>
@@ -25,7 +35,7 @@
 <label class="check" for="dialysis"><input id="dialysis" type="checkbox"><span><strong>Qualifying dialysis</strong><br><small>At least 2 sessions within the past 7 days, or ≥24 hours of continuous renal replacement therapy within that period.</small></span></label>
 <p class="error" id="error" role="alert" aria-live="polite"></p>
 <div class="actions"><button class="primary" id="copy" type="button">Copy results</button><button id="reset" type="button">Reset</button><button id="print" type="button">Print</button></div>
-<div class="privacy">Calculations run locally in your browser. No patient information is transmitted.</div>
+<div class="privacy">Calculations run locally in your browser. OCR does not upload screenshots, but it loads software from external CDNs.</div>
 </section>
 <section class="panel" aria-labelledby="scores-title"><h2 id="scores-title">Calculated scores</h2><div class="results" aria-live="polite">
 <div class="score"><div><div class="score-label">MELD original</div><div class="score-sub">Conventional MELD · 6–40</div><span class="tag neutral">Liver disease severity</span></div><div class="number" id="meld">—</div></div>
@@ -38,7 +48,7 @@
 <details><summary>MELD 3.0 formula</summary><p><code>1.33 × (female) + 4.56 × ln(bilirubin) + 0.82 × (137 − sodium) − 0.24 × (137 − sodium) × ln(bilirubin) + 9.09 × ln(INR) + 11.14 × ln(creatinine) + 1.85 × (3.5 − albumin) − 1.83 × (3.5 − albumin) × ln(creatinine) + 6</code></p><p>Bilirubin and INR are floored at 1.0; creatinine is restricted to 1.0–3.0 mg/dL (3.0 with qualifying dialysis); sodium 125–137 mEq/L; albumin 1.5–3.5 g/dL. Score is rounded to the nearest integer and restricted to 6–40. The female indicator follows the published equation.</p></details>
 <details><summary>FIPS formula and interpretation</summary><p><code>FIPS = 1.43 × log10(bilirubin) − 1.71/creatinine + 0.02 × age − 0.02 × albumin (g/L) + 0.81</code></p><p>Albumin entered in g/dL is multiplied by 10 to convert to g/L. FIPS uses measured bilirubin, creatinine, and albumin, not MELD-adjusted inputs. FIPS ≥0.92: higher-risk category in elective-TIPS cohorts. Dialysis status does not alter the FIPS formula.</p></details>
 <h3>Primary sources</h3><p class="source"><a href="https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator" target="_blank" rel="noopener noreferrer">HRSA/OPTN MELD calculator and clinical policy information</a><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/" target="_blank" rel="noopener noreferrer">Kim et al., Gastroenterology (2021), MELD 3.0</a><br><a href="https://pubmed.ncbi.nlm.nih.gov/33508376/" target="_blank" rel="noopener noreferrer">Bettinger et al., Journal of Hepatology (2021), FIPS</a></p>
-<div class="foot">Clinical reference for adults. Does not incorporate transplant exception points, other allocation rules, or individual contraindications to TIPS. Validate critical clinical decisions against current institutional and transplant-program standards. This webpage is self-contained and works offline; external reference links require internet access.</div>
+<div class="foot">Clinical reference for adults. Does not incorporate transplant exception points, other allocation rules, or individual contraindications to TIPS. Validate critical clinical decisions against current institutional and transplant-program standards. Manual calculations work offline. Screenshot text recognition requires an internet connection to load OCR software and language data; external reference links also require internet access.</div>
 </div></details></section></main>
 <footer class="site-footer"><strong>PICK</strong> | Portal Intervention Clinic at <strong style="color:var(--accent)">Keck</strong></footer>
 <script>
@@ -47,29 +57,119 @@ const ids=['age','sex','bilirubin','creatinine','albumin','inr','sodium','dialys
 const $=id=>document.getElementById(id);
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 let last=null;
+function setMissing(id){$(id).textContent='—'}
 function calculate(){
- const p={};for(const id of ids){p[id]=id==='dialysis'?$(id).checked:id==='sex'?$(id).value:Number($(id).value)};
- const numeric=['age','bilirubin','creatinine','albumin','inr','sodium'];
- const missing=numeric.some(k=>$(k).value.trim()==='')||!p.sex;
- const invalid=numeric.some(k=>$(k).value.trim()!==''&&(!Number.isFinite(p[k])||p[k]<=0))||(p.age!==0&&(p.age<18||p.age>120));
- if(missing||invalid){$('error').textContent=invalid?'Enter valid positive laboratory values and an age between 18 and 120.':'';for(const id of ['fips','meld','meld3'])$(id).textContent='—';$('fips-tag').textContent='—';$('fips-tag').className='tag neutral';$('adjustments').textContent='';last=null;return;}
- $('error').textContent='';
- const fips=1.43*Math.log10(p.bilirubin)-1.71/p.creatinine+0.02*p.age-0.02*(p.albumin*10)+0.81;
- const b=Math.max(p.bilirubin,1),ir=Math.max(p.inr,1);
- const c1=p.dialysis?4:clamp(p.creatinine,1,4),c3=p.dialysis?3:clamp(p.creatinine,1,3);
- const na=clamp(p.sodium,125,137),a=clamp(p.albumin,1.5,3.5);
- const meld=clamp(Math.round(9.57*Math.log(c1)+3.78*Math.log(b)+11.2*Math.log(ir)+6.43),6,40);
- const raw3=(p.sex==='female'?1.33:0)+4.56*Math.log(b)+0.82*(137-na)-0.24*(137-na)*Math.log(b)+9.09*Math.log(ir)+11.14*Math.log(c3)+1.85*(3.5-a)-1.83*(3.5-a)*Math.log(c3)+6;
- const meld3=clamp(Math.round(raw3),6,40);
- $('fips').textContent=fips.toFixed(2);$('meld').textContent=meld;$('meld3').textContent=meld3;
- $('fips-tag').textContent=fips>=0.92?'Higher risk (≥0.92)':'Lower risk (<0.92)';$('fips-tag').className='tag '+(fips>=0.92?'bad':'good');
- const notes=[];if(p.bilirubin<1)notes.push('bilirubin floored to 1.0 for MELD');if(p.inr<1)notes.push('INR floored to 1.0 for MELD');if(p.dialysis)notes.push('dialysis creatinine adjustment applied to MELD scores only');else if(p.creatinine<1||p.creatinine>3)notes.push('creatinine bounds applied to MELD scores');if(p.sodium<125||p.sodium>137)notes.push('sodium capped for MELD 3.0');if(p.albumin<1.5||p.albumin>3.5)notes.push('albumin capped for MELD 3.0');$('adjustments').textContent=notes.length?'Applied adjustments: '+notes.join('; ')+'.':'';
- last={p,fips,meld,meld3};
+ const p={}; for(const id of ids) p[id]=id==='dialysis'?$(id).checked:id==='sex'?$(id).value:$(id).value.trim()===''?null:Number($(id).value);
+ const valid=(id)=>p[id]!==null&&Number.isFinite(p[id])&&p[id]>0;
+ const ageValid=valid('age')&&p.age>=18&&p.age<=120;
+ const labsValid=['bilirubin','creatinine','albumin','inr','sodium'].every(valid);
+ const meldValid=['bilirubin','creatinine','inr'].every(valid);
+ const fipsValid=ageValid&&['bilirubin','creatinine','albumin'].every(valid);
+ const meld3Valid=labsValid&&['female','male'].includes(p.sex);
+ const badAge=p.age!==null&&!ageValid;
+ const badLabs=['bilirubin','creatinine','albumin','inr','sodium'].some(id=>p[id]!==null&&!valid(id));
+ $('error').textContent=badAge||badLabs?'Please correct invalid inputs (positive laboratory values, age 18–120).':'';
+ setMissing('meld');setMissing('meld3');setMissing('fips');$('fips-tag').textContent='—';$('fips-tag').className='tag neutral';$('adjustments').textContent='';last=null;
+ let meld=null,meld3=null,fips=null;
+ const b=valid('bilirubin')?Math.max(p.bilirubin,1):null;
+ const ir=valid('inr')?Math.max(p.inr,1):null;
+ const c1=valid('creatinine')?(p.dialysis?4:clamp(p.creatinine,1,4)):null;
+ const c3=valid('creatinine')?(p.dialysis?3:clamp(p.creatinine,1,3)):null;
+ if(meldValid){meld=clamp(Math.round(9.57*Math.log(c1)+3.78*Math.log(b)+11.2*Math.log(ir)+6.43),6,40);$('meld').textContent=meld;}
+ if(meld3Valid){const na=clamp(p.sodium,125,137),albumin=clamp(p.albumin,1.5,3.5);const raw=(p.sex==='female'?1.33:0)+4.56*Math.log(b)+0.82*(137-na)-0.24*(137-na)*Math.log(b)+9.09*Math.log(ir)+11.14*Math.log(c3)+1.85*(3.5-albumin)-1.83*(3.5-albumin)*Math.log(c3)+6;meld3=clamp(Math.round(raw),6,40);$('meld3').textContent=meld3;}
+ if(fipsValid){fips=1.43*Math.log10(p.bilirubin)-1.71/p.creatinine+0.02*p.age-0.02*(p.albumin*10)+0.81;$('fips').textContent=fips.toFixed(2);$('fips-tag').textContent=fips>=0.92?'Higher risk (≥0.92)':'Lower risk (<0.92)';$('fips-tag').className='tag '+(fips>=0.92?'bad':'good');}
+ const notes=[];
+ if((meldValid||meld3Valid)&&p.bilirubin<1)notes.push('bilirubin floored to 1.0 for MELD');
+ if((meldValid||meld3Valid)&&p.inr<1)notes.push('INR floored to 1.0 for MELD');
+ if((meldValid||meld3Valid)&&p.dialysis)notes.push('dialysis creatinine adjustment applied to MELD scores only');
+ else if((meldValid||meld3Valid)&&(p.creatinine<1||p.creatinine>3))notes.push('creatinine bounds applied to MELD scores');
+ if(meld3Valid&&(p.sodium<125||p.sodium>137))notes.push('sodium capped for MELD 3.0');
+ if(meld3Valid&&(p.albumin<1.5||p.albumin>3.5))notes.push('albumin capped for MELD 3.0');
+ $('adjustments').textContent=notes.length?'Applied adjustments: '+notes.join('; ')+'.':'';
+ if(meld!==null||meld3!==null||fips!==null)last={p,fips,meld,meld3};
 }
 for(const id of ids)$(id).addEventListener(id==='sex'||id==='dialysis'?'change':'input',calculate);
-$('reset').addEventListener('click',()=>{for(const id of ['age','sex','bilirubin','creatinine','albumin','inr','sodium'])$(id).value='';$('dialysis').checked=false;calculate();});
+$('reset').addEventListener('click',()=>{for(const id of ['age','sex','bilirubin','creatinine','albumin','inr','sodium']){$(id).value='';$(id).classList.remove('ocr-field','manual-needed');}$('dialysis').checked=false;$('ocr-text').value='';$('ocr-findings').textContent='';calculate();});
 $('print').addEventListener('click',()=>window.print());
-$('copy').addEventListener('click',async()=>{if(!last)return;const {p,fips,meld,meld3}=last;const message=`MELD original: ${meld}\nMELD 3.0: ${meld3}\nFIPS: ${fips.toFixed(2)} (${fips>=0.92?'higher':'lower'} risk)\nAge: ${p.age} years; Sex: ${p.sex}; Total bilirubin: ${p.bilirubin} mg/dL; Creatinine: ${p.creatinine} mg/dL; Albumin: ${p.albumin} g/dL; INR: ${p.inr}; Sodium: ${p.sodium} mEq/L; Qualifying dialysis: ${p.dialysis?'Yes':'No'}`;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(message);else{const t=document.createElement('textarea');t.value=message;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy failed');t.remove();}const old=$('copy').textContent;$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent=old,1500);}catch(e){window.prompt('Copy the results:',message);}});
+$('copy').addEventListener('click',async()=>{if(!last)return;const {p,fips,meld,meld3}=last;const message=`MELD original: ${meld===null?'Not calculated':meld}\nMELD 3.0: ${meld3===null?'Not calculated':meld3}\nFIPS: ${fips===null?'Not calculated':fips.toFixed(2)+' ('+(fips>=0.92?'higher':'lower')+' risk)'}\nAge: ${p.age??'Not entered'} years; Sex: ${p.sex||'Not entered'}; Total bilirubin: ${p.bilirubin??'Not entered'} mg/dL; Creatinine: ${p.creatinine??'Not entered'} mg/dL; Albumin: ${p.albumin??'Not entered'} g/dL; INR: ${p.inr??'Not entered'}; Sodium: ${p.sodium??'Not entered'} mEq/L; Qualifying dialysis: ${p.dialysis?'Yes':'No'}`;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(message);else{const t=document.createElement('textarea');t.value=message;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy failed');t.remove();}const old=$('copy').textContent;$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent=old,1500);}catch(e){window.prompt('Copy the results:',message);}});
+
+// OCR is performed with Tesseract.js inside the browser, not through an upload endpoint.
+let selectedImage=null,ocrBusy=false;
+const labFields=['bilirubin','creatinine','albumin','inr','sodium'];
+const labPatterns={
+ bilirubin:[/\b(?:bilirubin\s*(?:total|tot|t)?|total\s*bilirubin|t\s*bil(?:i)?|tbili)\b/i],
+ creatinine:[/\b(?:creatinine(?:\s*(?:lvl|level))?|creat(?:inine)?\s*lvl|serum\s*creat(?:inine)?)\b/i],
+ albumin:[/\b(?:albumin(?:\s*(?:lvl|level))?|alb\s*lvl)\b/i],
+ inr:[/\b(?:inr|international\s+normalized\s+ratio)\b/i],
+ sodium:[/\b(?:sodium(?:\s*(?:lvl|level))?|na\+?|serum\s+na)\b/i]
+};
+function parseLabs(text){
+ const lines=text.replace(/\r/g,'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
+ const found={};
+ const all=lines.join('\n');
+ for(let i=0;i<lines.length;i++){
+  let line=lines[i].replace(/[|¦]/g,' ').replace(/\s+/g,' ').trim();
+  for(const field of labFields){
+   if(found[field])continue;
+   for(const pat of labPatterns[field]){
+    const match=pat.exec(line);if(!match)continue;
+    // Discard text preceding the lab label. OCR tables may contain units, result flags and a date.
+    let tail=line.slice(match.index+match[0].length).replace(/^\s*(?:[:=\-]|\.{2,})\s*/,'');
+    // Some OCR outputs put the numeric result in the next line.
+    if(!tail.trim()&&i+1<lines.length)tail=lines[i+1];
+    // The result must be the first numeric token after the label (not a date or row number).
+    const n=tail.match(/^\s*(?:[:=\-]\s*)?(\d+(?:[.,]\d+)?|[.,]\d+)\b/);
+    if(!n)continue;
+    const value=Number(n[1].replace(',','.'));
+    if(!Number.isFinite(value)||value<=0)continue;
+    const rest=tail.slice(n[0].length).toLowerCase();
+    const unit=(rest.match(/\b(?:mg\s*\/\s*dl|g\s*\/\s*dl|g\s*\/\s*l|mmol\s*\/\s*l|meq\s*\/\s*l|µmol\s*\/\s*l|umol\s*\/\s*l)\b/)||[])[0]||'';
+    let normalized=value;
+    if(field==='albumin'&&/^g\s*\/\s*l$/.test(unit))normalized/=10;
+    if(field==='bilirubin'&&/^(?:µmol|umol)\s*\/\s*l$/.test(unit))normalized/=17.104;
+    if(field==='creatinine'&&/^(?:µmol|umol)\s*\/\s*l$/.test(unit))normalized/=88.4;
+    // Avoid accepting wildly implausible OCR reads. Values are still clinician-reviewed.
+    const ceiling={bilirubin:100,creatinine:35,albumin:12,inr:30,sodium:200}[field];
+    if(normalized>ceiling)continue;
+    found[field]={value:Number(normalized.toFixed(4)),raw:line,unit:unit||'not recognized'};
+    break;
+   }
+  }
+ }
+ return found;
+}
+function renderOcrResults(found){
+ const labels={bilirubin:'Total bilirubin',creatinine:'Creatinine',albumin:'Albumin',inr:'INR',sodium:'Sodium'};
+ const present=labFields.filter(id=>found[id]);
+ const missing=labFields.filter(id=>!found[id]);
+ for(const id of labFields){$(id).classList.remove('ocr-field','manual-needed');if(found[id]){$(id).value=found[id].value;$(id).classList.add('ocr-field');}else{$(id).value='';$(id).classList.add('manual-needed');}}
+ calculate();
+ const box=$('ocr-findings');box.replaceChildren();
+ const p=document.createElement('p');p.textContent=present.length+'/5 required lab values extracted: '+(present.map(id=>labels[id]+': '+found[id].value).join(' · ')||'None');box.append(p);
+ if(missing.length){const warn=document.createElement('p');warn.style.color='var(--red)';warn.textContent='Missing: '+missing.map(id=>labels[id]).join(', ')+'. Enter these manually.';box.append(warn);}
+ const note=document.createElement('p');note.textContent='Verify the lab values and their dates, then provide age, sex, and dialysis status as applicable. Original MELD calculates as soon as bilirubin, creatinine, and INR are entered.';box.append(note);
+}
+$('apply-ocr-text').addEventListener('click',()=>{const found=parseLabs($('ocr-text').value);renderOcrResults(found);$('ocr-status').className='ocr-status '+(Object.keys(found).length?'success':'warning');$('ocr-status').textContent=Object.keys(found).length?'Text parsed. Review highlighted fields.':'No matching lab results found. Use the sample format shown in the text box or enter labs manually.';});
+$('lab-image').addEventListener('change',(ev)=>{const file=ev.target.files?.[0];selectedImage=file||null;$('run-ocr').disabled=!file;$('ocr-findings').replaceChildren();if(!file){$('lab-preview').style.display='none';$('ocr-status').textContent='No screenshot selected.';return;}if(!file.type.startsWith('image/')){selectedImage=null;$('run-ocr').disabled=true;$('ocr-status').textContent='Please select an image file.';return;}const reader=new FileReader();reader.onload=()=>{$('lab-preview').src=reader.result;$('lab-preview').style.display='block'};reader.readAsDataURL(file);$('ocr-status').className='ocr-status';$('ocr-status').textContent='Image selected. Click “Read labs from image.”';});
+function loadTesseract(){
+ if(window.Tesseract?.recognize)return Promise.resolve();
+ return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';script.crossOrigin='anonymous';script.onload=()=>window.Tesseract?.recognize?resolve():reject(new Error('OCR software did not initialize'));script.onerror=()=>reject(new Error('Could not download OCR software. Check internet access.'));document.head.append(script);});
+}
+async function preparedImage(file){
+ const img=await createImageBitmap(file);try{const scale=Math.min(3,Math.max(1,1800/img.width));const w=Math.round(img.width*scale),h=Math.round(img.height*scale);const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);ctx.drawImage(img,0,0,w,h);return canvas;}finally{img.close();}
+}
+$('run-ocr').addEventListener('click',async()=>{
+ if(!selectedImage||ocrBusy)return;ocrBusy=true;$('run-ocr').disabled=true;$('ocr-status').className='ocr-status';$('ocr-status').textContent='Loading text recognition software (requires internet on first use)…';
+ try{
+  await loadTesseract();const image=await preparedImage(selectedImage);
+  const response=await window.Tesseract.recognize(image,'eng',{logger:m=>{if(m.status){$('ocr-status').textContent=m.status+(typeof m.progress==='number'?' '+Math.round(m.progress*100)+'%':'');}}});
+  const raw=response?.data?.text||'';$('ocr-text').value=raw;
+  const found=parseLabs(raw);renderOcrResults(found);
+  $('ocr-status').className='ocr-status '+(Object.keys(found).length?'success':'warning');$('ocr-status').textContent=Object.keys(found).length?'Recognition complete. '+Object.keys(found).length+' of 5 required lab values found. Verify the highlighted values.':'Recognition finished, but no required lab results could be matched. Correct the recognized text or enter values manually.';
+ }catch(err){$('ocr-status').className='ocr-status warning';$('ocr-status').textContent='Text recognition unavailable: '+(err?.message||String(err))+' You can still type the lab values or paste text into the box.';}
+ finally{ocrBusy=false;$('run-ocr').disabled=!selectedImage;}
+});
+
 calculate();
 </script>
 </body></html>
