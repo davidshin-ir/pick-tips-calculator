@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PICK TIPS Risk Calculator</title>
+<style>
+:root{color-scheme:light;--ink:#17243a;--muted:#62718a;--accent:#990000;--gold:#e8ae36;--bg:#f4f6fa;--line:#dfe5ee;--green:#166c4e;--red:#a1222a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}header{background:#fff;border-bottom:3px solid var(--accent)}.wrap{max-width:1080px;margin:auto;padding:0 22px}.top{padding:30px 0 26px}h1{margin:0;font-size:clamp(27px,4vw,38px);letter-spacing:-1.2px}header p{color:var(--muted);margin:6px 0 0}.accent{color:var(--accent)}main{padding-top:26px;padding-bottom:40px}.layout{display:grid;grid-template-columns:1.12fr 1fr;gap:20px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:15px;box-shadow:0 5px 20px #182f5009;padding:25px}h2{font-size:18px;margin:0 0 19px}h3{font-size:15px;margin:19px 0 10px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field label{display:block;font-weight:650;font-size:13px;margin:0 0 6px}.field input,.field select{width:100%;padding:11px 12px;border:1px solid #cdd7e4;border-radius:8px;background:#fff;color:var(--ink);font:inherit;outline:none}.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #99000017}.unit{font-weight:400;color:var(--muted)}.rule{height:1px;background:var(--line);margin:23px 0}.check{display:flex;align-items:flex-start;gap:10px;font-size:13px;cursor:pointer}.check input{accent-color:var(--accent);width:17px;height:17px;margin-top:2px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}button{cursor:pointer;border:1px solid #bdc8d7;background:#fff;color:var(--ink);padding:10px 14px;border-radius:9px;font-weight:650;font-size:13px}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:focus-visible{outline:3px solid #e8ae3699;outline-offset:2px}.results{display:grid;gap:13px}.score{border:1px solid var(--line);border-radius:12px;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff}.score:first-child{background:#fff9f8;border-color:#ecd8d4}.score-label{font-size:13px;font-weight:800;letter-spacing:.03em}.score-sub{color:var(--muted);font-size:12px;margin-top:3px}.number{font-variant-numeric:tabular-nums;font-size:36px;font-weight:750;line-height:1.15;letter-spacing:-1px}.tag{font-size:11px;font-weight:750;border-radius:99px;padding:5px 9px;display:inline-block;margin-top:7px}.tag.good{background:#e4f4eb;color:var(--green)}.tag.bad{background:#ffe6e7;color:var(--red)}.tag.neutral{background:#eaf0f6;color:#526178}.note{font-size:12px;color:var(--muted);margin:15px 0 0}.error{color:var(--red);min-height:20px;font-weight:600;font-size:13px;margin:9px 0 0}.method{margin-top:20px}.method details{border-top:1px solid var(--line);padding:12px 0}.method details:last-child{border-bottom:1px solid var(--line)}summary{font-weight:700;cursor:pointer}code{white-space:normal;word-break:break-word;background:#f4f6f9;padding:2px 4px;border-radius:3px;color:#34425a}small{color:var(--muted)}.source a{color:#7a1820;text-decoration:underline;text-underline-offset:2px}.foot{margin-top:19px;padding-top:15px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.privacy{font-size:12px;color:var(--green);font-weight:650;margin-top:10px}@media(max-width:760px){.layout{grid-template-columns:1fr}.panel{padding:20px}.wrap{padding:0 15px}.top{padding:23px 0}.number{font-size:32px}}@media print{body{background:white}header{border-bottom:2px solid #999}.panel{box-shadow:none;break-inside:avoid}button{display:none}.layout{grid-template-columns:1fr 1fr}details{display:block}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><h1><span class="accent">PICK TIPS</span> Risk Calculator</h1><p>FIPS · Original MELD · MELD 3.0 &nbsp;|&nbsp; Adult clinical reference</p></div></header>
+<main class="wrap"><div class="layout">
+<section class="panel" aria-labelledby="patient-title"><h2 id="patient-title">Patient and laboratory inputs</h2>
+<div class="fields">
+<div class="field"><label for="age">Age <span class="unit">(years)</span></label><input id="age" type="number" min="18" max="120" step="1" value="60" inputmode="decimal"></div>
+<div class="field"><label for="sex">Sex <span class="unit">(MELD 3.0)</span></label><select id="sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+<div class="field"><label for="bilirubin">Total bilirubin <span class="unit">(mg/dL)</span></label><input id="bilirubin" type="number" min="0.01" step="any" value="2.0" inputmode="decimal"></div>
+<div class="field"><label for="creatinine">Creatinine <span class="unit">(mg/dL)</span></label><input id="creatinine" type="number" min="0.01" step="any" value="1.2" inputmode="decimal"></div>
+<div class="field"><label for="albumin">Albumin <span class="unit">(g/dL)</span></label><input id="albumin" type="number" min="0.01" step="any" value="3.0" inputmode="decimal"></div>
+<div class="field"><label for="inr">INR</label><input id="inr" type="number" min="0.01" step="any" value="1.5" inputmode="decimal"></div>
+<div class="field"><label for="sodium">Sodium <span class="unit">(mEq/L)</span></label><input id="sodium" type="number" min="0.01" step="any" value="135" inputmode="decimal"></div>
+</div><div class="rule"></div>
+<label class="check" for="dialysis"><input id="dialysis" type="checkbox"><span><strong>Qualifying dialysis</strong><br><small>At least 2 sessions within the past 7 days, or ≥24 hours of continuous renal replacement therapy within that period.</small></span></label>
+<p class="error" id="error" role="alert" aria-live="polite"></p>
+<div class="actions"><button class="primary" id="copy" type="button">Copy results</button><button id="reset" type="button">Reset</button><button id="print" type="button">Print</button></div>
+<div class="privacy">Calculations run locally in your browser. No patient information is transmitted.</div>
+</section>
+<section class="panel" aria-labelledby="scores-title"><h2 id="scores-title">Calculated scores</h2><div class="results" aria-live="polite">
+<div class="score"><div><div class="score-label">FIPS</div><div class="score-sub">Freiburg Index of Post-TIPS Survival</div><span class="tag neutral" id="fips-tag">—</span></div><div class="number" id="fips">—</div></div>
+<div class="score"><div><div class="score-label">ORIGINAL MELD</div><div class="score-sub">Conventional MELD · 6–40</div><span class="tag neutral">Liver disease severity</span></div><div class="number" id="meld">—</div></div>
+<div class="score"><div><div class="score-label">MELD 3.0</div><div class="score-sub">Adult MELD 3.0 · 6–40</div><span class="tag neutral">Updated MELD model</span></div><div class="number" id="meld3">—</div></div>
+</div><p class="note">FIPS ≥0.92 identifies a higher-risk group in the original elective-TIPS study. Neither FIPS nor MELD alone determines procedural eligibility.</p><p class="note" id="adjustments"></p></section>
+</div>
+<section class="panel method" aria-labelledby="method-title"><h2 id="method-title">Methodology and references</h2>
+<details><summary>FIPS formula and interpretation</summary><p><code>FIPS = 1.43 × log10(bilirubin) − 1.71/creatinine + 0.02 × age − 0.02 × albumin (g/L) + 0.81</code></p><p>Albumin entered in g/dL is multiplied by 10 to convert to g/L. FIPS uses measured bilirubin, creatinine, and albumin, not MELD-adjusted inputs. FIPS ≥0.92: higher-risk category in elective-TIPS cohorts. Dialysis status does not alter the FIPS formula.</p></details>
+<details><summary>Original MELD formula</summary><p><code>MELD = 9.57 × ln(creatinine) + 3.78 × ln(bilirubin) + 11.20 × ln(INR) + 6.43</code></p><p>For MELD only: bilirubin and INR are floored at 1.0; creatinine is restricted to 1.0–4.0 mg/dL and set to 4.0 with qualifying dialysis. Final integer score is restricted to 6–40. This is original/conventional MELD, not MELD-Na.</p></details>
+<details><summary>MELD 3.0 formula</summary><p><code>1.33 × (female) + 4.56 × ln(bilirubin) + 0.82 × (137 − sodium) − 0.24 × (137 − sodium) × ln(bilirubin) + 9.09 × ln(INR) + 11.14 × ln(creatinine) + 1.85 × (3.5 − albumin) − 1.83 × (3.5 − albumin) × ln(creatinine) + 6</code></p><p>Bilirubin and INR are floored at 1.0; creatinine is restricted to 1.0–3.0 mg/dL (3.0 with qualifying dialysis); sodium 125–137 mEq/L; albumin 1.5–3.5 g/dL. Score is rounded to the nearest integer and restricted to 6–40. The female indicator follows the published equation.</p></details>
+<h3>Primary sources</h3><p class="source"><a href="https://pubmed.ncbi.nlm.nih.gov/33508376/" target="_blank" rel="noopener noreferrer">Bettinger et al., Journal of Hepatology (2021), FIPS</a><br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/" target="_blank" rel="noopener noreferrer">Kim et al., Gastroenterology (2021), MELD 3.0</a><br><a href="https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator" target="_blank" rel="noopener noreferrer">HRSA/OPTN MELD calculator and clinical policy information</a></p>
+<div class="foot">Clinical reference for adults. Does not incorporate transplant exception points, other allocation rules, or individual contraindications to TIPS. Validate critical clinical decisions against current institutional and transplant-program standards. This webpage is self-contained and works offline; external reference links require internet access.</div>
+</section></main>
+<script>
+'use strict';
+const ids=['age','sex','bilirubin','creatinine','albumin','inr','sodium','dialysis'];
+const $=id=>document.getElementById(id);
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+let last=null;
+function calculate(){
+ const p={};for(const id of ids){p[id]=id==='dialysis'?$(id).checked:id==='sex'?$(id).value:Number($(id).value)};
+ const numeric=['age','bilirubin','creatinine','albumin','inr','sodium'];
+ const invalid=numeric.some(k=>$(k).value.trim()===''||!Number.isFinite(p[k])||p[k]<=0)||p.age<18||p.age>120;
+ if(invalid){$('error').textContent='Enter valid positive laboratory values and an age between 18 and 120.';for(const id of ['fips','meld','meld3'])$(id).textContent='—';$('fips-tag').textContent='—';$('fips-tag').className='tag neutral';$('adjustments').textContent='';last=null;return;}
+ $('error').textContent='';
+ const fips=1.43*Math.log10(p.bilirubin)-1.71/p.creatinine+0.02*p.age-0.02*(p.albumin*10)+0.81;
+ const b=Math.max(p.bilirubin,1),ir=Math.max(p.inr,1);
+ const c1=p.dialysis?4:clamp(p.creatinine,1,4),c3=p.dialysis?3:clamp(p.creatinine,1,3);
+ const na=clamp(p.sodium,125,137),a=clamp(p.albumin,1.5,3.5);
+ const meld=clamp(Math.round(9.57*Math.log(c1)+3.78*Math.log(b)+11.2*Math.log(ir)+6.43),6,40);
+ const raw3=(p.sex==='female'?1.33:0)+4.56*Math.log(b)+0.82*(137-na)-0.24*(137-na)*Math.log(b)+9.09*Math.log(ir)+11.14*Math.log(c3)+1.85*(3.5-a)-1.83*(3.5-a)*Math.log(c3)+6;
+ const meld3=clamp(Math.round(raw3),6,40);
+ $('fips').textContent=fips.toFixed(2);$('meld').textContent=meld;$('meld3').textContent=meld3;
+ $('fips-tag').textContent=fips>=0.92?'Higher risk (≥0.92)':'Lower risk (<0.92)';$('fips-tag').className='tag '+(fips>=0.92?'bad':'good');
+ const notes=[];if(p.bilirubin<1)notes.push('bilirubin floored to 1.0 for MELD');if(p.inr<1)notes.push('INR floored to 1.0 for MELD');if(p.dialysis)notes.push('dialysis creatinine adjustment applied to MELD scores only');else if(p.creatinine<1||p.creatinine>3)notes.push('creatinine bounds applied to MELD scores');if(p.sodium<125||p.sodium>137)notes.push('sodium capped for MELD 3.0');if(p.albumin<1.5||p.albumin>3.5)notes.push('albumin capped for MELD 3.0');$('adjustments').textContent=notes.length?'Applied adjustments: '+notes.join('; ')+'.':'MELD-specific input bounds are applied internally where required.';
+ last={p,fips,meld,meld3};
+}
+for(const id of ids)$(id).addEventListener(id==='sex'||id==='dialysis'?'change':'input',calculate);
+$('reset').addEventListener('click',()=>{Object.entries({age:'60',sex:'male',bilirubin:'2.0',creatinine:'1.2',albumin:'3.0',inr:'1.5',sodium:'135'}).forEach(([k,v])=>$(k).value=v);$('dialysis').checked=false;calculate();});
+$('print').addEventListener('click',()=>window.print());
+$('copy').addEventListener('click',async()=>{if(!last)return;const {p,fips,meld,meld3}=last;const message=`FIPS: ${fips.toFixed(2)} (${fips>=0.92?'higher':'lower'} risk)\nOriginal MELD: ${meld}\nMELD 3.0: ${meld3}\nAge: ${p.age} years; Sex: ${p.sex}; Total bilirubin: ${p.bilirubin} mg/dL; Creatinine: ${p.creatinine} mg/dL; Albumin: ${p.albumin} g/dL; INR: ${p.inr}; Sodium: ${p.sodium} mEq/L; Qualifying dialysis: ${p.dialysis?'Yes':'No'}`;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(message);else{const t=document.createElement('textarea');t.value=message;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy failed');t.remove();}const old=$('copy').textContent;$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent=old,1500);}catch(e){window.prompt('Copy the results:',message);}});
+calculate();
+</script>
+</body></html>
