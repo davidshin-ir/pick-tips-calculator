@@ -24,6 +24,24 @@
 <div class="field"><label for="albumin">Albumin <span class="unit">(g/dL)</span></label><input id="albumin" inputmode="decimal" min="0.01" step="any" type="number"/></div>
 <div class="field"><label for="inr">INR</label><input id="inr" inputmode="decimal" min="0.01" step="any" type="number"/></div>
 <div class="field"><label for="sodium">Sodium <span class="unit">(mEq/L)</span></label><input id="sodium" inputmode="decimal" min="0.01" step="any" type="number"/></div>
+<div class="field"><label for="ascites">Ascites <span class="unit">(Child-Pugh)</span></label><select id="ascites"><option disabled selected value="">Select ascites status</option><option value="1">None</option><option value="2">Mild or controlled with diuretics</option><option value="3">Moderate or severe despite diuretics</option></select></div>
+<div class="field"><label for="encephalopathy">Hepatic encephalopathy <span class="unit">(Child-Pugh)</span></label><select id="encephalopathy"><option disabled selected value="">Select HE grade</option><option value="1">None · No clinical signs of HE</option>
+<option value="2">Grade 1 · Attention or sleep changes, still oriented</option>
+<option value="2">Grade 2 · Lethargy, time disorientation, or asterixis</option>
+<option value="3">Grade 3 · Very drowsy and confused, responds to stimulation</option>
+<option value="3">Grade 4 · Coma, no response to pain</option></select>
+<details class="note">
+<summary>HE grading guide (West Haven)</summary>
+<ul>
+<li><strong>None (1 Child-Pugh point)</strong> · No clinical signs of HE.</li>
+<li><strong>Grade 1 (2 points)</strong> · Subtle changes in attention, sleep rhythm, or simple arithmetic. Still oriented to time and place.</li>
+<li><strong>Grade 2 (2 points)</strong> · Lethargy or apathy, disorientation to time, or clear behavioral change. Asterixis is common.</li>
+<li><strong>Grade 3 (3 points)</strong> · Marked confusion and gross disorientation. Very drowsy or semistuporous but still responds to stimulation.</li>
+<li><strong>Grade 4 (3 points)</strong> · Coma without response to painful stimulation.</li>
+</ul>
+<p><a href="https://www.aasld.org/sites/default/files/2022-07/Hepatic%20Encephalopathy%20in%20Chronic%20Liver%20Disease%202014.pdf" target="_blank" rel="noopener noreferrer">AASLD/EASL practice guideline, Table 2</a></p>
+</details>
+</div>
 </div><div class="rule"></div>
 <label class="check" for="dialysis"><input id="dialysis" type="checkbox"/><span><strong>Qualifying dialysis</strong><br/><small>At least 2 sessions within the past 7 days, or ≥24 hours of continuous renal replacement therapy within that period.</small></span></label>
 <p aria-live="polite" class="error" id="error" role="alert"></p>
@@ -34,12 +52,20 @@
 <div class="score"><div><div class="score-label">MELD original</div><div class="score-sub">Conventional MELD · 6–40</div><span class="tag neutral">Liver disease severity</span></div><div class="number" id="meld">—</div></div>
 <div class="score"><div><div class="score-label">MELD 3.0</div><div class="score-sub">Adult MELD 3.0 · 6–40</div><span class="tag neutral">Updated MELD model</span></div><div class="number" id="meld3">—</div></div>
 <div class="score fips-score"><div><div class="score-label">FIPS</div><div class="score-sub">Freiburg Index of Post-TIPS Survival</div><span class="tag neutral" id="fips-tag">—</span></div><div class="number" id="fips">—</div></div>
+<div class="score"><div><div class="score-label">Child-Pugh</div><div class="score-sub">Cirrhosis severity · 5–15</div><span class="tag neutral" id="child-pugh-class">—</span></div><div class="number" id="child-pugh">—</div></div>
 </div><p class="note" id="adjustments"></p></section>
 </div>
 <section aria-labelledby="method-title" class="panel method"><details class="method-toggle"><summary id="method-title">Methodology and references</summary><div class="method-content">
 <details><summary>Original MELD formula</summary><p><code>MELD = 9.57 × ln(creatinine) + 3.78 × ln(bilirubin) + 11.20 × ln(INR) + 6.43</code></p><p>For MELD only: bilirubin and INR are floored at 1.0; creatinine is restricted to 1.0–4.0 mg/dL and set to 4.0 with qualifying dialysis. Final integer score is restricted to 6–40. This is original/conventional MELD, not MELD-Na.</p></details>
 <details><summary>MELD 3.0 formula</summary><p><code>1.33 × (female) + 4.56 × ln(bilirubin) + 0.82 × (137 − sodium) − 0.24 × (137 − sodium) × ln(bilirubin) + 9.09 × ln(INR) + 11.14 × ln(creatinine) + 1.85 × (3.5 − albumin) − 1.83 × (3.5 − albumin) × ln(creatinine) + 6</code></p><p>Bilirubin and INR are floored at 1.0; creatinine is restricted to 1.0–3.0 mg/dL (3.0 with qualifying dialysis); sodium 125–137 mEq/L; albumin 1.5–3.5 g/dL. Score is rounded to the nearest integer and restricted to 6–40. The female indicator follows the published equation.</p></details>
 <details><summary>FIPS formula and interpretation</summary><p><code>FIPS = 1.43 × log10(bilirubin) − 1.71/creatinine + 0.02 × age − 0.02 × albumin (g/L) + 0.81</code></p><p>Albumin entered in g/dL is multiplied by 10 to convert to g/L. FIPS uses measured bilirubin, creatinine, and albumin, not MELD-adjusted inputs. FIPS ≥0.92: higher-risk category in elective-TIPS cohorts. Dialysis status does not alter the FIPS formula.</p></details>
+<details><summary>Child-Pugh scoring</summary><p>Each component contributes 1, 2, or 3 points. Standard bilirubin cutoffs are used.</p><ul>
+<li>Total bilirubin (mg/dL): &lt;2, 2–3, &gt;3.</li>
+<li>Albumin (g/dL): &gt;3.5, 2.8–3.5, &lt;2.8.</li>
+<li>INR: &lt;1.7, 1.7–2.3, &gt;2.3.</li>
+<li>Ascites: absent, mild or controlled with diuretics, moderate or severe despite diuretics.</li>
+<li>Hepatic encephalopathy: absent, grade 1–2, grade 3–4.</li>
+</ul><p>Class A = 5–6, class B = 7–9, class C = 10–15.</p><p><a href="https://www.merckmanuals.com/professional/multimedia/table/child-turcotte-pugh-scoring-system" rel="noopener noreferrer" target="_blank">Merck Manual Professional Edition, Child-Turcotte-Pugh scoring</a></p></details>
 <h3>Primary sources</h3><p class="source"><a href="https://www.hrsa.gov/optn/data-calculators/allocation-calculators/meld-calculator" rel="noopener noreferrer" target="_blank">HRSA/OPTN MELD calculator and clinical policy information</a><br/><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/" rel="noopener noreferrer" target="_blank">Kim et al., Gastroenterology (2021), MELD 3.0</a><br/><a href="https://pubmed.ncbi.nlm.nih.gov/33508376/" rel="noopener noreferrer" target="_blank">Bettinger et al., Journal of Hepatology (2021), FIPS</a></p>
 <div class="foot">Clinical reference for adults. Does not incorporate transplant exception points, other allocation rules, or individual contraindications to TIPS. Validate critical clinical decisions against current institutional and transplant-program standards. This webpage is self-contained and works offline; external reference links require internet access.</div>
 </div></details></section></main>
@@ -50,8 +76,25 @@ const ids=['age','sex','bilirubin','creatinine','albumin','inr','sodium','dialys
 const $=id=>document.getElementById(id);
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 let last=null;
+const childPughFields=['ascites','encephalopathy'];
+let childPugh=null;
+function calculateChildPugh({bilirubin,albumin,inr}){
+ const ascites=Number($('ascites').value);
+ const encephalopathy=Number($('encephalopathy').value);
+ childPugh=null;
+ if([bilirubin,albumin,inr].every(value=>Number.isFinite(value)&&value>0)&&ascites&&encephalopathy){
+  const bilirubinPoints=bilirubin<2?1:bilirubin<=3?2:3;
+  const albuminPoints=albumin>3.5?1:albumin>=2.8?2:3;
+  const inrPoints=inr<1.7?1:inr<=2.3?2:3;
+  const points=bilirubinPoints+albuminPoints+inrPoints+ascites+encephalopathy;
+  childPugh={points,grade:points<=6?'A':points<=9?'B':'C'};
+ }
+ $('child-pugh').textContent=childPugh?.points??'—';
+ $('child-pugh-class').textContent=childPugh?'Class '+childPugh.grade:'—';
+}
 function calculate(){
  const p={};for(const id of ids){p[id]=id==='dialysis'?$(id).checked:id==='sex'?$(id).value:Number($(id).value)};
+ calculateChildPugh(p);
  const numeric=['age','bilirubin','creatinine','albumin','inr','sodium'];
  const missing=numeric.some(k=>$(k).value.trim()==='')||!p.sex;
  const invalid=numeric.some(k=>$(k).value.trim()!==''&&(!Number.isFinite(p[k])||p[k]<=0))||(p.age!==0&&(p.age<18||p.age>120));
@@ -70,9 +113,10 @@ function calculate(){
  last={p,fips,meld,meld3};
 }
 for(const id of ids)$(id).addEventListener(id==='sex'||id==='dialysis'?'change':'input',calculate);
-$('reset').addEventListener('click',()=>{for(const id of ['age','sex','bilirubin','creatinine','albumin','inr','sodium'])$(id).value='';$('dialysis').checked=false;calculate();});
+for(const id of childPughFields)$(id).addEventListener('change',calculate);
+$('reset').addEventListener('click',()=>{for(const id of [...ids.filter(id=>id!=='dialysis'),...childPughFields])$(id).value='';$('dialysis').checked=false;calculate();});
 $('print').addEventListener('click',()=>window.print());
-$('copy').addEventListener('click',async()=>{if(!last)return;const {p,fips,meld,meld3}=last;const message=`MELD original: ${meld}\nMELD 3.0: ${meld3}\nFIPS: ${fips.toFixed(2)} (${fips>=0.92?'higher':'lower'} risk)\nAge: ${p.age} years; Sex: ${p.sex}; Total bilirubin: ${p.bilirubin} mg/dL; Creatinine: ${p.creatinine} mg/dL; Albumin: ${p.albumin} g/dL; INR: ${p.inr}; Sodium: ${p.sodium} mEq/L; Qualifying dialysis: ${p.dialysis?'Yes':'No'}`;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(message);else{const t=document.createElement('textarea');t.value=message;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy failed');t.remove();}const old=$('copy').textContent;$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent=old,1500);}catch(e){window.prompt('Copy the results:',message);}});
+$('copy').addEventListener('click',async()=>{if(!last&&!childPugh)return;const {p,fips,meld,meld3}=last??{};const existingScores=last?`MELD original: ${meld}\nMELD 3.0: ${meld3}\nFIPS: ${fips.toFixed(2)} (${fips>=0.92?'higher':'lower'} risk)\nAge: ${p.age} years; Sex: ${p.sex}; Total bilirubin: ${p.bilirubin} mg/dL; Creatinine: ${p.creatinine} mg/dL; Albumin: ${p.albumin} g/dL; INR: ${p.inr}; Sodium: ${p.sodium} mEq/L; Qualifying dialysis: ${p.dialysis?'Yes':'No'}`:'';const childPughScore=childPugh?`Child-Pugh: ${childPugh.points} (Class ${childPugh.grade})`:'';const message=[existingScores,childPughScore].filter(Boolean).join('\n');try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(message);else{const t=document.createElement('textarea');t.value=message;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw Error('copy failed');t.remove();}const old=$('copy').textContent;$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent=old,1500);}catch(e){window.prompt('Copy the results:',message);}});
 calculate();
 </script>
 </body></html>
